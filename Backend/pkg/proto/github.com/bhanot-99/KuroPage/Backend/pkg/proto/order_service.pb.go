@@ -202,7 +202,7 @@ const file_pkg_proto_order_service_proto_rawDesc = "" +
 	"\border_id\x18\x01 \x01(\tR\aorderId\x12!\n" +
 	"\ftotal_amount\x18\x02 \x01(\x02R\vtotalAmount2T\n" +
 	"\fOrderService\x12D\n" +
-	"\vCreateOrder\x12\x19.proto.CreateOrderRequest\x1a\x1a.proto.CreateOrderResponseB3Z1github.com/bhanot-99/MangaVerse/Backend/pkg/protob\x06proto3"
+	"\vCreateOrder\x12\x19.proto.CreateOrderRequest\x1a\x1a.proto.CreateOrderResponseB1Z/github.com/bhanot-99/KuroPage/Backend/pkg/protob\x06proto3"
 
 var (
 	file_pkg_proto_order_service_proto_rawDescOnce sync.Once

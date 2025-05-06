@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package proto;
 
-option go_package = "github.com/bhanot-99/MangaVerse/Backend/pkg/proto";
+option go_package = "github.com/bhanot-99/KuroPage/Backend/pkg/proto";
 
 service UserService {
   rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);

@@ -350,7 +350,7 @@ const file_pkg_proto_user_service_proto_rawDesc = "" +
 	"\vUserService\x12G\n" +
 	"\fRegisterUser\x12\x1a.proto.RegisterUserRequest\x1a\x1b.proto.RegisterUserResponse\x12>\n" +
 	"\tLoginUser\x12\x17.proto.LoginUserRequest\x1a\x18.proto.LoginUserResponse\x12M\n" +
-	"\x0eGetUserProfile\x12\x1c.proto.GetUserProfileRequest\x1a\x1d.proto.GetUserProfileResponseB3Z1github.com/bhanot-99/MangaVerse/Backend/pkg/protob\x06proto3"
+	"\x0eGetUserProfile\x12\x1c.proto.GetUserProfileRequest\x1a\x1d.proto.GetUserProfileResponseB1Z/github.com/bhanot-99/KuroPage/Backend/pkg/protob\x06proto3"
 
 var (
 	file_pkg_proto_user_service_proto_rawDescOnce sync.Once

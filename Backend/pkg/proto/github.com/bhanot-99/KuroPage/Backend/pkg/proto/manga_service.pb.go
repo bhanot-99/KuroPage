@@ -526,7 +526,7 @@ const file_pkg_proto_manga_service_proto_rawDesc = "" +
 	"\tEditManga\x12\x17.proto.EditMangaRequest\x1a\x18.proto.EditMangaResponse\x12A\n" +
 	"\n" +
 	"ListMangas\x12\x18.proto.ListMangasRequest\x1a\x19.proto.ListMangasResponse\x12e\n" +
-	"\x16CheckMangaAvailability\x12$.proto.CheckMangaAvailabilityRequest\x1a%.proto.CheckMangaAvailabilityResponseB3Z1github.com/bhanot-99/MangaVerse/Backend/pkg/protob\x06proto3"
+	"\x16CheckMangaAvailability\x12$.proto.CheckMangaAvailabilityRequest\x1a%.proto.CheckMangaAvailabilityResponseB1Z/github.com/bhanot-99/KuroPage/Backend/pkg/protob\x06proto3"
 
 var (
 	file_pkg_proto_manga_service_proto_rawDescOnce sync.Once
