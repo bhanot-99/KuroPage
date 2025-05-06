@@ -1,0 +1,28 @@
+// filepath: e:\Development\Advance Programming 2\Projects\MangaVerse\Backend\docker-compose.yml
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mangaverse
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - mangaverse_net
+
+  nats:
+    image: nats:latest
+    ports:
+      - "4222:4222"
+    networks:
+      - mangaverse_net
+
+networks:
+  mangaverse_net:
+    driver: bridge
+
+volumes:
+  postgres_data:

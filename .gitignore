@@ -1,0 +1,2 @@
+# Ignore node_modules from frontend
+/Frontend/node_modules/

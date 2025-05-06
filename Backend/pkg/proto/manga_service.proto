@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "github.com/bhanot-99/MangaVerse/Backend/pkg/proto";
+
+service MangaService {
+  rpc AddManga(AddMangaRequest) returns (AddMangaResponse);
+  rpc EditManga(EditMangaRequest) returns (EditMangaResponse);
+  rpc ListMangas(ListMangasRequest) returns (ListMangasResponse);
+  rpc CheckMangaAvailability(CheckMangaAvailabilityRequest) returns (CheckMangaAvailabilityResponse);
+}
+
+message Manga {
+  string id = 1;
+  string title = 2;
+  string author = 3;
+  string description = 4;
+  float price = 5;
+  int32 stock = 6;
+}
+
+message AddMangaRequest {
+  Manga manga = 1;
+}
+
+message AddMangaResponse {
+  string manga_id = 1;
+}
+
+message EditMangaRequest {
+  Manga manga = 1;
+}
+
+message EditMangaResponse {
+  bool success = 1;
+}
+
+message ListMangasRequest {
+  int32 page = 1;
+  int32 limit = 2;
+}
+
+message ListMangasResponse {
+  repeated Manga mangas = 1;
+  int32 total = 2;
+}
+
+message CheckMangaAvailabilityRequest {
+  string manga_id = 1;
+  int32 quantity = 2;
+}
+
+message CheckMangaAvailabilityResponse {
+  bool available = 1;
+  int32 stock = 2;
+}
