@@ -35,7 +35,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const loginWithGoogle = (googleUser: any) => {
-    // You can extract user info from googleUser if needed
     const mockUser: User = {
       id: googleUser.sub || 'google-id',
       email: googleUser.email || 'google@example.com',

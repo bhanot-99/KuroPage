@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext';
 import { motion } from 'framer-motion';
 // Add this import:
 import { GoogleLogin } from '@react-oauth/google';
+import { Link } from 'react-router-dom';
 
 type NavbarProps = {
   onNavigate: (page: 'home' | 'products') => void;
@@ -57,28 +58,25 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <button 
-              onClick={() => onNavigate('home')}
-              className="flex-shrink-0 flex items-center"
-            >
+            <Link to="/home" className="navbar-brand">
               <span className="text-2xl font-display bg-gradient-to-r from-indigo-400 to-violet-400 
                              bg-clip-text text-transparent">
                 MangaVerse
               </span>
-            </button>
+            </Link>
             <div className="hidden sm:ml-8 sm:flex sm:space-x-4">
-              <button 
-                onClick={() => onNavigate('home')}
+              <Link 
+                to="/home"
                 className={`nav-link ${currentPage === 'home' ? 'text-white' : ''}`}
               >
                 Home
-              </button>
-              <button
-                onClick={() => onNavigate('products')}
+              </Link>
+              <Link
+                to="/products"
                 className={`nav-link ${currentPage === 'products' ? 'text-white' : ''}`}
               >
                 Browse Manga
-              </button>
+              </Link>
             </div>
           </div>
           
@@ -145,26 +143,22 @@ export const Navbar: React.FC<NavbarProps> = ({
           transition={{ duration: 0.2 }}
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <button
-              onClick={() => {
-                onNavigate('home');
-                setIsMobileMenuOpen(false);
-              }}
+            <Link
+              to="/home"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white 
-                       hover:bg-gray-700"
+                         hover:bg-gray-700"
             >
               Home
-            </button>
-            <button
-              onClick={() => {
-                onNavigate('products');
-                setIsMobileMenuOpen(false);
-              }}
+            </Link>
+            <Link
+              to="/products"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white 
-                       hover:bg-gray-700"
+                         hover:bg-gray-700"
             >
               Browse Manga
-            </button>
+            </Link>
           </div>
         </motion.div>
       )}
