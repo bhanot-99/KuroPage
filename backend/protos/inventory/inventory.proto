@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package inventory;
+
+option go_package = "github.com/elliaaan/proto-gen/pb/inventory;inventorypb";
+
+message Product {
+  uint64 id = 1;
+  string name = 2;
+  string category = 3;
+  uint32 stock = 4;
+  double price = 5;
+}
+
+message CreateProductRequest {
+  Product product = 1;
+}
+
+message GetProductRequest {
+  uint64 id = 1;
+}
+
+message UpdateProductRequest {
+  Product product = 1;
+}
+
+message DeleteProductRequest {
+  uint64 id = 1;
+}
+
+message ProductResponse {
+  Product product = 1;
+}
+
+message ListProductsRequest {}
+
+message ListProductsResponse {
+  repeated Product products = 1;
+}
+
+message Empty {}
+
+service InventoryService {
+  rpc CreateProduct(CreateProductRequest) returns (ProductResponse);
+  rpc GetProductByID(GetProductRequest) returns (ProductResponse);
+  rpc UpdateProduct(UpdateProductRequest) returns (ProductResponse);
+  rpc DeleteProduct(DeleteProductRequest) returns (Empty);
+  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse);
+}

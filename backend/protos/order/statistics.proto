@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package order;
+
+option go_package = "github.com/elliaaan/proto-gen/pb/order;orderpb";
+
+message OrderEvent {
+  uint64 order_id = 1;
+  uint64 user_id = 2;
+  string status = 3;
+  float total_price = 4;
+  string created_at = 5;
+}

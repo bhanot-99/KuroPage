@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package statistics;
+
+option go_package = "github.com/elliaaan/proto-gen/pb/statistics;statisticspb";
+
+message UserOrderStatisticsRequest {
+  uint64 user_id = 1;
+}
+
+message UserOrderStatisticsResponse {
+  uint64 user_id = 1;
+  uint32 total_orders = 2;
+}
+
+message UserStatisticsRequest {
+  uint64 user_id = 1;
+}
+
+message UserStatisticsResponse {
+  uint64 user_id = 1;
+  uint32 total_events = 2;
+  uint32 order_events = 3;
+  uint32 product_events = 4;
+}
+
+service StatisticsService {
+  rpc GetUserOrdersStatistics(UserOrderStatisticsRequest) returns (UserOrderStatisticsResponse);
+  rpc GetUserStatistics(UserStatisticsRequest) returns (UserStatisticsResponse);
+}

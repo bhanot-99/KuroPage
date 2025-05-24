@@ -1,0 +1,5 @@
+start cmd /k "cd inventory-service && go run cmd/main.go"
+start cmd /k "cd order-service && go run cmd/main.go"
+start cmd /k "cd api-gateway && go run main.go"
+start cmd /k "cd statistics-service && go run cmd/main.go"
+start cmd /k "cd C:\Tools\nats && nats-server.exe"
