@@ -3,14 +3,23 @@ import { ShoppingCart, User, Menu, X } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { motion } from 'framer-motion';
+// Add this import:
+import { GoogleLogin } from '@react-oauth/google';
 
-interface NavbarProps {
+type NavbarProps = {
   onNavigate: (page: 'home' | 'products') => void;
   currentPage: 'home' | 'products';
-}
+  isAuthenticated?: boolean;
+  onLogout?: () => void;
+};
 
-export function Navbar({ onNavigate, currentPage }: NavbarProps) {
-  const { user, logout } = useAuth();
+export const Navbar: React.FC<NavbarProps> = ({
+  onNavigate,
+  currentPage,
+  isAuthenticated,
+  onLogout,
+}) => {
+  const { user, logout, loginWithGoogle } = useAuth();
   const { items } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,6 +31,19 @@ export function Navbar({ onNavigate, currentPage }: NavbarProps) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handler for Google login success
+  const handleGoogleLoginSuccess = (credentialResponse: any) => {
+    // Parse credentialResponse if needed
+    if (loginWithGoogle) {
+      loginWithGoogle(credentialResponse);
+    }
+  };
+
+  // Handler for Google login error
+  const handleGoogleLoginError = () => {
+    console.log('Google login failed');
+  };
 
   return (
     <motion.nav 
@@ -85,9 +107,16 @@ export function Navbar({ onNavigate, currentPage }: NavbarProps) {
                 </button>
               </div>
             ) : (
-              <button className="btn-primary">
-                Sign In
-              </button>
+              // Replace the button with GoogleLogin
+              <GoogleLogin
+                onSuccess={handleGoogleLoginSuccess}
+                onError={handleGoogleLoginError}
+                width="140"
+                theme="filled_black"
+                size="medium"
+                text="signin_with"
+                shape="pill"
+              />
             )}
           </div>
 
